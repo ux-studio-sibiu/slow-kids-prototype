@@ -1,0 +1,34 @@
+// ─────────────────────────────────────────────────────────────────────────
+// Decorative paint-splatter background textures.
+//
+// Real SVGs sourced from the We Are Adventurers service pages via the
+// `copy-from-web` skill (brown ink splats, fill #584136). Layered exactly like
+// the original `main.main-layout` rule: one "foot" splat plus two left/right
+// pairs, each positioned and sized independently.
+//
+// This partial only DEFINES a mixin (no rulesets), so it can be `@use`d from
+// any component stylesheet without emitting duplicate CSS. The drop-in utility
+// class `.has-splatter-bg` is emitted once from globals.scss.
+// ─────────────────────────────────────────────────────────────────────────
+
+@mixin splatter-layers {
+  background-image:
+    url(/images/texture-serviceparent-foot.svg),
+    url(/images/texture-serviceparent-leftsplat.svg),
+    url(/images/texture-serviceparent-rightsplat.svg),
+    url(/images/texture-serviceparent-leftsplat2.svg),
+    url(/images/texture-serviceparent-rightsplat2.svg);
+  background-repeat: no-repeat;
+  background-size:
+    40rem auto,
+    50rem auto,
+    50rem auto,
+    50rem auto,
+    50rem auto;
+  background-position:
+    right 8%,
+    left 12%,
+    right 50%,
+    left 60%,
+    right 80%;
+}

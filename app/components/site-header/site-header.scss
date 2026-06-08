@@ -1,0 +1,31 @@
+@use "@/app/styles/breakpoints" as *;
+
+.nsc-site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(244, 243, 240, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+  .site-header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    @include respond-to("tablet") {
+      padding: 24px 40px;
+    }
+  }
+
+  .site-header-brand {
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    font-size: 1.1rem;
+    color: #1a1a1a;
+  }
+}

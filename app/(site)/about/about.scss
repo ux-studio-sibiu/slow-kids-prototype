@@ -1,0 +1,49 @@
+@use "@/app/styles/breakpoints" as *;
+
+#nsc--about {
+  .about-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 60px 20px;
+
+    @include respond-to("tablet") {
+      padding: 80px 40px;
+    }
+  }
+
+  .about-title {
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 700;
+    margin-bottom: 28px;
+  }
+
+  .about-body {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #2a2a2a;
+  }
+
+  .about-empty {
+    color: #6b6b6b;
+  }
+
+  .about-contact {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .about-contact-link {
+    font-weight: 700;
+    border-bottom: 2px solid transparent;
+
+    @media (hover: hover) {
+      &:hover {
+        border-bottom-color: #1a1a1a;
+      }
+    }
+  }
+}

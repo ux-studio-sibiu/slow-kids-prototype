@@ -1,0 +1,123 @@
+@use "@/app/styles/breakpoints" as *;
+
+// "Popout" CTA banner — a torn black brush-stroke band sitting on a sage
+// background, with brush edges drawn via ::before (top) and ::after (bottom),
+// mirroring the We Are Adventurers `section.popout-alt` technique.
+
+$band-color: #231f20; // matches the fill in the layout-bar SVGs
+$sage: #8a9279;
+$accent: #d4622a;
+$teal: #4aa0a8;
+
+.nsc-cta-popout {
+  position: relative;
+  background: $sage;
+  // Vertical room so the torn edges have space above/below the band.
+  padding: 7rem 0;
+  overflow: hidden;
+
+  .cta-popout-band {
+    position: relative;
+    background: $band-color;
+
+    // Torn top edge.
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -4rem;
+      height: 5rem;
+      background-image: url(/images/layout-bar-top-black.svg);
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: 100% 100%;
+    }
+
+    // Torn bottom edge.
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -4rem;
+      height: 5rem;
+      background-image: url(/images/layout-bar-bottom-black.svg);
+      background-repeat: no-repeat;
+      background-position: bottom center;
+      background-size: 100% 100%;
+    }
+  }
+
+  .cta-popout-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+
+    @include respond-to("desktop") {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      padding: 3rem 40px;
+    }
+  }
+
+  .cta-popout-text {
+    flex: 1;
+    color: #f4f3f0;
+  }
+
+  .cta-popout-title {
+    display: inline-block;
+    background: #fff;
+    color: $accent;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    padding: 0.35em 0.6em;
+    margin-bottom: 1.4rem;
+  }
+
+  .cta-popout-paragraph {
+    line-height: 1.6;
+    max-width: 60ch;
+
+    & + & {
+      margin-top: 1rem;
+    }
+
+    // Subtle accent on the lead-in of the second paragraph, echoing the
+    // teal highlight used on the reference site.
+    &:nth-child(3)::first-line {
+      color: $teal;
+    }
+  }
+
+  .cta-popout-button {
+    flex-shrink: 0;
+    display: inline-block;
+    background: $accent;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    font-size: 1.1rem;
+    padding: 1rem 2.5rem;
+    border-radius: 2px;
+    transition: background 0.15s ease, transform 0.15s ease;
+
+    @media (hover: hover) {
+      &:hover {
+        background: #bd521f;
+        transform: translateY(-2px);
+      }
+    }
+  }
+}

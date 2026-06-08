@@ -1,0 +1,126 @@
+@use "@/app/styles/breakpoints" as *;
+
+#nsc--home {
+  .home-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    padding: 60px 20px;
+    text-align: center;
+    overflow: hidden;
+    background: #e9e7e2;
+  }
+
+  .home-hero-media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    img {
+      filter: brightness(0.6);
+    }
+  }
+
+  .home-hero-content {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+
+    // No background image → dark text on the light placeholder.
+    .home-hero-media + & {
+      color: #fff;
+    }
+  }
+
+  .home-hero-title {
+    font-size: clamp(2rem, 6vw, 4rem);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  .home-hero-tagline {
+    margin-top: 16px;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    font-weight: 400;
+  }
+
+  .home-events {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+
+    @include respond-to("tablet") {
+      padding: 80px 40px;
+    }
+  }
+
+  .home-events-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 32px;
+  }
+
+  .home-events-empty {
+    color: #6b6b6b;
+  }
+
+  .home-events-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+
+    @include respond-to("tablet") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to("desktop") {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .home-events-item {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .home-events-thumb {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    background: #e9e7e2;
+  }
+
+  .home-events-body {
+    padding: 18px 20px 22px;
+  }
+
+  .home-events-date {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #8a8a8a;
+  }
+
+  .home-events-name {
+    margin-top: 6px;
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+
+  .home-events-count {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: #8a8a8a;
+  }
+}

@@ -1,0 +1,122 @@
+@use "@/app/styles/breakpoints" as *;
+
+.nav-menu {
+  position: relative;
+  z-index: 10;
+
+  .nav-menu-hamburger {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 11;
+    position: relative;
+
+    @include respond-to("tablet") {
+      display: none;
+    }
+
+    span {
+      width: 24px;
+      height: 2px;
+      background: #1a1a1a;
+      transition: all 0.15s ease;
+      transform-origin: center;
+      position: absolute;
+      left: 0;
+    }
+
+    span:nth-child(1) {
+      top: 0;
+    }
+
+    span:nth-child(2) {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    span:nth-child(3) {
+      top: 100%;
+      transform: translateY(-100%);
+    }
+
+    &:has(+ .nav-menu-list.open) span:nth-child(1) {
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    &:has(+ .nav-menu-list.open) span:nth-child(2) {
+      opacity: 0;
+    }
+
+    &:has(+ .nav-menu-list.open) span:nth-child(3) {
+      top: 50%;
+      transform: translateY(-50%) rotate(-45deg);
+    }
+  }
+
+  .nav-menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 30px 20px;
+    padding-top: 100px;
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    @include respond-to("tablet") {
+      height: auto;
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+      position: static;
+      background: transparent;
+      padding: 0;
+      border: none;
+    }
+
+    &.open {
+      display: flex;
+    }
+  }
+
+  .nav-menu-item {
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-menu-link {
+    display: inline-block;
+    text-decoration: none;
+    color: #1a1a1a;
+    letter-spacing: 0.08em;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    border-bottom: 2px solid transparent;
+    // Remove the lingering grey/blue tap flash on mobile webkit.
+    -webkit-tap-highlight-color: transparent;
+
+    // Only on real pointers (mouse) — on touch, :hover sticks after a tap until
+    // you tap elsewhere, leaving the underline lingering on the clicked link.
+    @media (hover: hover) {
+      &:hover {
+        border-bottom-color: rgba(0, 0, 0, 0.4);
+      }
+    }
+
+    &.active {
+      border-bottom-color: #1a1a1a;
+    }
+  }
+}
