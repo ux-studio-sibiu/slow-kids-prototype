@@ -1,5 +1,7 @@
+import { createElement } from "react";
 import { StructureResolver } from "sanity/structure";
-import { CogIcon, CalendarIcon, ClockIcon } from "@sanity/icons";
+import { CogIcon, CalendarIcon, ClockIcon, UsersIcon, ChartUpwardIcon } from "@sanity/icons";
+import SignupsSummary from "./components/signups-summary";
 
 export const structure: StructureResolver = (S) =>
   S.list()
@@ -39,5 +41,26 @@ export const structure: StructureResolver = (S) =>
             .schemaType("availability")
             .documentId("availability")
             .title("Calendar")
+        ),
+
+      S.divider(),
+
+      // All signups (flat list).
+      S.listItem()
+        .title("Înscrieri")
+        .icon(UsersIcon)
+        .child(
+          S.documentTypeList("signup")
+            .title("Înscrieri")
+            .defaultOrdering([{ field: "submittedAt", direction: "desc" }])
+        ),
+
+      // Summary table with search + event filter, export and delete.
+      S.listItem()
+        .title("Sumar înscrieri")
+        .id("sumar-inscrieri")
+        .icon(ChartUpwardIcon)
+        .child(
+          S.component(() => createElement(SignupsSummary)).title("Sumar înscrieri")
         ),
     ]);

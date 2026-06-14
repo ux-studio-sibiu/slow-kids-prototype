@@ -45,6 +45,16 @@ export type EventType = {
   photos?: EventPhoto[];
 };
 
+export type SignupType = {
+  _id: string;
+  childName?: string;
+  parentName?: string;
+  contactEmail?: string;
+  contactPhone?: string;
+  event?: { _ref: string } | null;
+  submittedAt?: string;
+};
+
 export type DayStatus = "occupied" | "free";
 
 export type DayRecord = {

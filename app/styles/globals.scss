@@ -9,8 +9,9 @@ html {
   min-height: 100%;
   height: 100%;
   width: 100%;
-  overflow-y: scroll;
-  scrollbar-gutter: stable;
+  // No forced window scrollbar — on desktop the layout fits 100vh and only the
+  // right panel scrolls (overflow-y: auto). On mobile the page scrolls only if
+  // its stacked content overflows.
   scroll-behavior: smooth;
 }
 

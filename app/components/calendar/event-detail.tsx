@@ -1,5 +1,6 @@
 import { PortableText } from "@portabletext/react";
 import type { EventType } from "@/types";
+import SignupForm from "@/app/components/signup-form/signup-form";
 
 // Minimal line icons (stroke = currentColor) for each meta field.
 const iconProps = {
@@ -99,6 +100,8 @@ export default function EventDetail({ event }: { event: EventType }) {
           <PortableText value={event.importantNote} />
         </div>
       )}
+
+      <SignupForm eventId={event._id} eventTitle={event.title} />
     </li>
   );
 }

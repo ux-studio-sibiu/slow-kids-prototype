@@ -1,0 +1,81 @@
+.nsc-signups-summary {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 100vh;
+  overflow: hidden;
+
+  // Make the inner Stack fill the card.
+  > [data-ui="Stack"] {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .table-panel {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--card-border-color);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .table-wrap {
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
+    max-height: calc(100vh - 320px);
+  }
+
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    white-space: nowrap;
+
+    th,
+    td {
+      padding: 6px 10px;
+      text-align: left;
+      border-bottom: 1px solid var(--card-border-color);
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      background: var(--card-bg-color);
+      font-weight: 600;
+      z-index: 1;
+      border-bottom-width: 2px;
+    }
+
+    tbody tr:hover {
+      background: var(--card-code-bg-color, rgba(0, 0, 0, 0.03));
+    }
+  }
+
+  .cell-num {
+    color: var(--card-muted-fg-color);
+    width: 40px;
+    text-align: right;
+  }
+
+  .cell-event {
+    max-width: 240px;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .footer-bar {
+    padding: 8px 10px;
+    background: var(--card-bg-color);
+    border-top: 1px solid var(--card-border-color);
+  }
+
+  .delete-btn {
+    border: 1px solid var(--card-border-color);
+    border-radius: 3px;
+  }
+}
