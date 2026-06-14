@@ -27,6 +27,55 @@ body {
   font-family: Arial, sans-serif;
 }
 
+// ── Two equal panels ───────────────────────────────────────────────────────
+// Left panel holds the nav + hero swiper, right panel holds the page content.
+// Side-by-side and each viewport-tall on desktop (only the right panel
+// scrolls); stacked with the page scrolling normally on narrow screens.
+.nsc-site-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+
+  @include respond-to("desktop") {
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+  }
+}
+
+.site-panel-left {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-primary);
+  border-bottom: 1px solid var(--border-subtle);
+
+  @include respond-to("desktop") {
+    height: 100vh;
+    overflow: hidden;
+    border-bottom: none;
+    border-right: 1px solid var(--border-subtle);
+  }
+}
+
+// Hero swiper fills the space below the header in the left panel.
+.site-hero {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 42vh;
+
+  @include respond-to("desktop") {
+    min-height: 0;
+  }
+}
+
+.site-panel-right {
+  min-width: 0; // let content shrink inside the grid track instead of overflowing
+
+  @include respond-to("desktop") {
+    height: 100vh;
+    overflow-y: auto;
+  }
+}
+
 // Drop-in utility — add this class to any element to paint the decorative
 // paint-splatter textures on a behind-content layer (so their opacity and
 // stacking never touch the children). Tune intensity with the

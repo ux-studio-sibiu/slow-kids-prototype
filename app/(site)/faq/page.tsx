@@ -8,7 +8,7 @@ export default async function Faq() {
   const items = info?.faq ?? [];
 
   return (
-    <main id="nsc--faq">
+    <div id="nsc--faq">
       <div className="faq-inner">
         <h1 className="faq-title">Întrebări frecvente</h1>
 
@@ -27,6 +27,6 @@ export default async function Faq() {
           </div>
         )}
       </div>
-    </main>
+    </div>
   );
 }

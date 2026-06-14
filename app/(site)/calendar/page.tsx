@@ -21,7 +21,7 @@ export default async function CalendarPage() {
   const focusDate = focus ? new Date(focus.date) : new Date();
 
   return (
-    <main id="nsc--calendar">
+    <div id="nsc--calendar">
       <section className="calendar-backdrop has-splatter-bg">
         <div className="calendar-inner">
           {/* <h1 className="calendar-title">Calendar</h1> */}
@@ -29,14 +29,10 @@ export default async function CalendarPage() {
           {events.length === 0 ? (
             <p className="calendar-empty">Niciun eveniment programat.</p>
           ) : (
-            <CalendarSplit
-              events={events}
-              month={focusDate.getMonth()}
-              year={focusDate.getFullYear()}
-            />
+            <CalendarSplit events={events} month={focusDate.getMonth()} year={focusDate.getFullYear()} />
           )}
         </div>
       </section>
-    </main>
+    </div>
   );
 }

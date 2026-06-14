@@ -9,7 +9,7 @@ export default async function About() {
   const heading = info?.aboutTitle || "Despre";
 
   return (
-    <main id="nsc--about">
+    <div id="nsc--about">
       <article className="about-inner">
         <h1 className="about-title">{heading}</h1>
 
@@ -38,6 +38,6 @@ export default async function About() {
           </div>
         )}
       </article>
-    </main>
+    </div>
   );
 }
