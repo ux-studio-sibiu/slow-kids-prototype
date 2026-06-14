@@ -32,16 +32,7 @@ export default function HeroSwiper({
     >
       {images.map((src, idx) => (
         <SwiperSlide key={idx}>
-          <Image
-            src={src.url}
-            className="object-cover"
-            alt={`${alt} ${idx + 1}`}
-            fill
-            priority={idx === 0}
-            sizes="100vw"
-            placeholder={src.lqip ? "blur" : "empty"}
-            blurDataURL={src.lqip}
-          />
+          <Image src={src.url} className="object-cover" alt={`${alt} ${idx + 1}`} fill priority={idx === 0} sizes="100vw" placeholder={src.lqip ? "blur" : "empty"} blurDataURL={src.lqip} />
         </SwiperSlide>
       ))}
     </Swiper>

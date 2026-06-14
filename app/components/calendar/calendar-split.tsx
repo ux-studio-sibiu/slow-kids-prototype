@@ -148,11 +148,7 @@ export default function CalendarSplit({
                     const d = new Date(event.date);
                     return (
                       <li key={event._id}>
-                        <button
-                          type="button"
-                          className="calendar-split-teaser"
-                          onClick={() => selectEvent(event)}
-                        >
+                        <button type="button" className="calendar-split-teaser" onClick={() => selectEvent(event)}>
                           <span className="calendar-split-teaser-date">
                             <span className="calendar-split-teaser-day">
                               {d.toLocaleDateString("ro-RO", { day: "2-digit" })}
@@ -266,15 +262,7 @@ export default function CalendarSplit({
             <div className="calendar-split-gallery-grid">
               {selectedPhotos.map((photo, i) => (
                 <div key={photo.url ?? i} className="calendar-split-photo">
-                  <Image
-                    src={photo.url}
-                    alt={photo.title}
-                    fill
-                    sizes="(min-width: 1160px) 1120px, 100vw"
-                    className="object-cover"
-                    placeholder={photo.lqip ? "blur" : undefined}
-                    blurDataURL={photo.lqip}
-                  />
+                  <Image src={photo.url} alt={photo.title} fill sizes="(min-width: 1160px) 1120px, 100vw" className="object-cover" placeholder={photo.lqip ? "blur" : undefined} blurDataURL={photo.lqip} />
                 </div>
               ))}
             </div>

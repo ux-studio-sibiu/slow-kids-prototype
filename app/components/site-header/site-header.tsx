@@ -1,12 +1,6 @@
 import Link from "next/link";
-import NavMenu from "../nav-menu/nav-menu";
+import NavMenu, { NavLink } from "../nav-menu/nav-menu";
 import "./site-header.scss";
-
-const NAV_ITEMS = [
-  { label: "Despre", href: "/about" },
-  { label: "Calendar", href: "/calendar" },
-  { label: "Întrebări frecvente", href: "/faq" },
-];
 
 export default function SiteHeader({ title }: { title: string }) {
   return (
@@ -15,7 +9,11 @@ export default function SiteHeader({ title }: { title: string }) {
         <Link href="/" className="site-header-brand text-uppercase">
           {title}
         </Link>
-        <NavMenu items={NAV_ITEMS} />
+        <NavMenu>
+          <NavLink href="/about">Despre</NavLink>
+          <NavLink href="/calendar">Calendar</NavLink>
+          <NavLink href="/faq">Întrebări frecvente</NavLink>
+        </NavMenu>
       </div>
     </header>
   );

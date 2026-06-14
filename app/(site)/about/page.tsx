@@ -31,10 +31,7 @@ export default async function About() {
               </a>
             )}
             {info?.phoneNumber && (
-              <a
-                href={`tel:${info.phoneNumber.replace(/\s+/g, "")}`}
-                className="about-contact-link"
-              >
+              <a href={`tel:${info.phoneNumber.replace(/\s+/g, "")}`} className="about-contact-link">
                 {info.phoneNumber}
               </a>
             )}

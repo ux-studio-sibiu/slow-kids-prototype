@@ -25,16 +25,7 @@ export default async function Home() {
         ) : (
           heroImage?.url && (
             <div className="home-hero-media">
-              <Image
-                src={heroImage.url}
-                alt={title}
-                fill
-                priority
-                sizes="100vw"
-                className="object-cover"
-                placeholder={heroImage.lqip ? "blur" : undefined}
-                blurDataURL={heroImage.lqip}
-              />
+              <Image src={heroImage.url} alt={title} fill priority sizes="100vw" className="object-cover" placeholder={heroImage.lqip ? "blur" : undefined} blurDataURL={heroImage.lqip} />
             </div>
           )
         )}
@@ -61,15 +52,7 @@ export default async function Home() {
                 <li key={event._id} className="home-events-item">
                   {cover?.url && (
                     <div className="home-events-thumb">
-                      <Image
-                        src={cover.url}
-                        alt={event.title}
-                        fill
-                        sizes="(min-width: 768px) 360px, 100vw"
-                        className="object-cover"
-                        placeholder={cover.lqip ? "blur" : undefined}
-                        blurDataURL={cover.lqip}
-                      />
+                      <Image src={cover.url} alt={event.title} fill sizes="(min-width: 768px) 360px, 100vw" className="object-cover" placeholder={cover.lqip ? "blur" : undefined} blurDataURL={cover.lqip} />
                     </div>
                   )}
                   <div className="home-events-body">
