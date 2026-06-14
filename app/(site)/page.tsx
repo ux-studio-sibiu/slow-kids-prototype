@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { getGeneralInfo, getEvents } from "@/sanity/sanity.query";
 import CtaPopout from "@/app/components/cta-popout/cta-popout";
-import SplatterBackdrop from "@/app/components/splatter-backdrop/splatter-backdrop";
 import HeroSwiper from "@/app/components/hero-swiper/hero-swiper";
 import "./page.scss";
 
@@ -47,7 +46,7 @@ export default async function Home() {
 
       <CtaPopout />
 
-      <SplatterBackdrop as="section" className="home-events">
+      <section className="home-events has-splatter-bg">
         <h2 className="home-events-title">Evenimente</h2>
 
         {events.length === 0 ? (
@@ -93,7 +92,7 @@ export default async function Home() {
             })}
           </ul>
         )}
-      </SplatterBackdrop>
+      </section>
     </main>
   );
 }

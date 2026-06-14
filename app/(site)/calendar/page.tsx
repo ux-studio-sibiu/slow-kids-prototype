@@ -1,6 +1,5 @@
 import { getEvents } from "@/sanity/sanity.query";
 import CalendarSplit from "@/app/components/calendar/calendar-split";
-import SplatterBackdrop from "@/app/components/splatter-backdrop/splatter-backdrop";
 import "./calendar.scss";
 
 export const revalidate = 60; // seconds
@@ -23,7 +22,7 @@ export default async function CalendarPage() {
 
   return (
     <main id="nsc--calendar">
-      <SplatterBackdrop as="section" className="calendar-backdrop">
+      <section className="calendar-backdrop has-splatter-bg">
         <div className="calendar-inner">
           {/* <h1 className="calendar-title">Calendar</h1> */}
 
@@ -37,7 +36,7 @@ export default async function CalendarPage() {
             />
           )}
         </div>
-      </SplatterBackdrop>
+      </section>
     </main>
   );
 }

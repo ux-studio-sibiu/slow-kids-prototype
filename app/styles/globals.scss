@@ -27,9 +27,25 @@ body {
   font-family: Arial, sans-serif;
 }
 
-// Drop-in utility — paints the splatter textures directly onto any element's
-// background. For text-heavy containers prefer the <SplatterBackdrop> component
-// (layers them behind content with opacity control).
+// Drop-in utility — add this class to any element to paint the decorative
+// paint-splatter textures on a behind-content layer (so their opacity and
+// stacking never touch the children). Tune intensity with the
+// `--splatter-opacity` custom property, e.g. style={{ "--splatter-opacity": 0.35 }}.
 .has-splatter-bg {
-  @include splatter-layers;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: var(--splatter-opacity, 0.55);
+    @include splatter-layers;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
 }

@@ -89,6 +89,50 @@ plain, parent-scoped child names rather than encoded modifiers.
 <button className="nav-link nav-link--active">…</button>
 ```
 
+## Prefer a CSS class over a new component
+
+When an effect is **purely visual** — a background, texture, decorative layer,
+gradient, border treatment, shadow, etc. — and adds no markup, state, or
+behaviour of its own, expose it as a **drop-in CSS utility class**, not a React
+wrapper component.
+
+Adding the class to any element should be all it takes to get the effect:
+
+```tsx
+// ✓ Good — drop-in class, works on any element
+<section className="home-events has-splatter-bg">…</section>
+```
+
+```scss
+// has-splatter-bg lives once in globals; add it anywhere.
+.has-splatter-bg {
+  position: relative;
+
+  // Decorative layer sits behind content so opacity/stacking never
+  // touch the children. Tune with a custom property, not a prop.
+  &::before { content: ""; position: absolute; inset: 0; z-index: 0; opacity: var(--splatter-opacity, 0.55); /* … */ }
+  > * { position: relative; z-index: 1; }
+}
+```
+
+```tsx
+// ✗ Bad — a wrapper component that only renders a styled element
+<SplatterBackdrop as="section" className="home-events">…</SplatterBackdrop>
+```
+
+Why:
+
+- **Less indirection** — no extra file, import, or `as`/`className` plumbing to
+  forward; the markup reads as plain HTML.
+- **Composable** — stacks freely with other classes on the same element and
+  works on any tag without a polymorphic `as` prop.
+- **Parameterise with CSS custom properties** (`style={{ "--splatter-opacity": 0.35 }}`),
+  not component props.
+
+Reach for a component **only** when the thing carries its own markup, children
+structure, state, or behaviour. A class that exists purely to set styles does
+not justify a component.
+
 ---
 
 **Key rule**: Use `nsc-` on the root element only. Nested elements are scoped by the parent and don't need the prefix. No `--` modifiers — plain classes for variants, `is-` for state.
