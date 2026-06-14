@@ -14,6 +14,7 @@
     padding: 0;
     z-index: 11;
     position: relative;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45));
 
     @include respond-to("tablet") {
       display: none;
@@ -22,7 +23,7 @@
     span {
       width: 24px;
       height: 2px;
-      background: #1a1a1a;
+      background: var(--text-inverse);
       transition: all 0.15s ease;
       transform-origin: center;
       position: absolute;
@@ -71,8 +72,9 @@
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.97);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    // Dark full-screen panel on mobile so the white links stay legible (on
+    // desktop the links sit transparently over the image).
+    background: rgba(35, 31, 32, 0.96);
 
     @include respond-to("tablet") {
       height: auto;
@@ -98,12 +100,13 @@
   .nav-menu-link {
     display: inline-block;
     text-decoration: none;
-    color: #1a1a1a;
+    color: var(--text-inverse);
     letter-spacing: 0.08em;
     font-weight: 400;
     text-transform: uppercase;
     font-size: 0.85rem;
     border-bottom: 2px solid transparent;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
     // Remove the lingering grey/blue tap flash on mobile webkit.
     -webkit-tap-highlight-color: transparent;
 
@@ -111,12 +114,12 @@
     // you tap elsewhere, leaving the underline lingering on the clicked link.
     @media (hover: hover) {
       &:hover {
-        border-bottom-color: rgba(0, 0, 0, 0.4);
+        border-bottom-color: rgba(255, 255, 255, 0.6);
       }
     }
 
     &.active {
-      border-bottom-color: #1a1a1a;
+      border-bottom-color: var(--text-inverse);
     }
   }
 }

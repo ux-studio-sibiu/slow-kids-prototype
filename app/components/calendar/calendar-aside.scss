@@ -1,0 +1,24 @@
+@use "@/app/styles/breakpoints" as *;
+
+// The hero image fills the area below the header; the calendar sits centred on
+// top of it, with padding so the image stays visible around the card.
+.nsc-calendar-aside {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 42vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 24px;
+
+  @include respond-to("desktop") {
+    min-height: 0;
+  }
+}
+
+.calendar-aside-hero {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}

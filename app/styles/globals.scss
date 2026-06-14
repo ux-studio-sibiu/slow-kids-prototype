@@ -43,6 +43,7 @@ body {
 }
 
 .site-panel-left {
+  position: relative; // positioning context for the overlaid (transparent) header
   display: flex;
   flex-direction: column;
   background: var(--surface-primary);

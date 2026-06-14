@@ -1,38 +1,50 @@
+import Link from "next/link";
 import { getEvents } from "@/sanity/sanity.query";
-import CalendarSplit from "@/app/components/calendar/calendar-split";
+import { dayKey } from "@/app/components/calendar/day-key";
 import "./calendar.scss";
 
 export const revalidate = 60; // seconds
 
-export default async function CalendarPage() {
+export default async function CalendarIndexPage() {
   const events = await getEvents();
-
-  // Open the calendar on the month of the soonest upcoming event (falling back
-  // to the most recent past event, then to the current month) so visitors land
-  // on a month that actually has something on it.
   const now = Date.now();
   const upcoming = events
-    .filter((e) => new Date(e.date).getTime() >= now)
-    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())[0];
-  const mostRecent = events
-    .slice()
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0];
-  const focus = upcoming ?? mostRecent;
-  const focusDate = focus ? new Date(focus.date) : new Date();
+    .filter((e) => e.date && new Date(e.date).getTime() >= now)
+    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+    .slice(0, 5);
 
   return (
-    <div id="nsc--calendar">
-      <section className="calendar-backdrop has-splatter-bg">
-        <div className="calendar-inner">
-          {/* <h1 className="calendar-title">Calendar</h1> */}
+    <div id="nsc--calendar" className="has-splatter-bg">
+      <div className="calendar-inner">
+        <p className="calendar-hint">
+          Selectează o zi marcată din calendar pentru a vedea evenimentul.
+        </p>
 
-          {events.length === 0 ? (
-            <p className="calendar-empty">Niciun eveniment programat.</p>
-          ) : (
-            <CalendarSplit events={events} month={focusDate.getMonth()} year={focusDate.getFullYear()} />
-          )}
-        </div>
-      </section>
+        {upcoming.length > 0 && (
+          <>
+            <h2 className="calendar-upcoming-title">Evenimente următoare</h2>
+            <ul className="calendar-teaser-list">
+              {upcoming.map((event) => {
+                const d = new Date(event.date);
+                return (
+                  <li key={event._id}>
+                    <Link href={`/calendar/${dayKey(d)}`} className="calendar-teaser">
+                      <span className="calendar-teaser-date">
+                        <span className="calendar-teaser-day">{d.toLocaleDateString("ro-RO", { day: "2-digit" })}</span>
+                        <span className="calendar-teaser-month">{d.toLocaleDateString("ro-RO", { month: "short" })}</span>
+                      </span>
+                      <span className="calendar-teaser-body">
+                        <span className="calendar-teaser-title">{event.title}</span>
+                        {event.meetPoint && <span className="calendar-teaser-meta">{event.meetPoint}</span>}
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </>
+        )}
+      </div>
     </div>
   );
 }

@@ -1,0 +1,143 @@
+// Calendar used as a date-picker nav, floating as a card over the hero image
+// in the left panel. Days with events are links to /calendar/[date]; the right
+// panel renders that day's detail.
+.nsc-calendar-nav {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 360px;
+  max-height: 100%;
+  overflow-y: auto;
+  padding: 20px 22px 24px;
+  // Translucent card so the image reads through faintly; opaque enough to keep
+  // the grid legible.
+  background: color-mix(in srgb, var(--surface-primary) 90%, transparent);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.2);
+
+  .calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .calendar-month {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    color: var(--text-primary);
+  }
+
+  .calendar-nav-btn {
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    background: var(--surface-secondary);
+    font-size: 1.3rem;
+    line-height: 1;
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background: var(--surface-accent);
+      border-color: var(--surface-accent);
+      color: var(--text-on-accent);
+    }
+  }
+
+  .calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .calendar-weekday {
+    text-align: center;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+  }
+
+  .calendar-day {
+    aspect-ratio: 1 / 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    background: var(--surface-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-family: inherit;
+
+    &.is-empty {
+      background: transparent;
+      border-color: transparent;
+    }
+
+    &.is-free {
+      color: var(--text-secondary);
+    }
+
+    &.has-events {
+      // Only the centred green star marks the day — hide the number.
+      .calendar-day-num {
+        display: none;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          border-color: var(--color-green);
+        }
+      }
+    }
+
+    &.is-today {
+      font-weight: 700;
+      box-shadow: inset 0 0 0 2px var(--border-strong);
+    }
+
+    &.is-selected {
+      outline: 2px solid var(--color-green);
+      outline-offset: -2px;
+    }
+  }
+
+  .calendar-day-num {
+    position: relative;
+    z-index: 1;
+    line-height: 1;
+  }
+
+  // Green star centred on a day with events.
+  .calendar-day-star {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 34px;
+    height: 34px;
+    transform: translate(-50%, -50%);
+    color: var(--color-green);
+    pointer-events: none;
+  }
+}

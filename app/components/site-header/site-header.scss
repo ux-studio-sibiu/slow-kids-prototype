@@ -1,5 +1,13 @@
+// The header floats over the left-panel image with a transparent background;
+// light text + shadow keep it legible over photos.
 .nsc-site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
   padding: 24px 28px;
+  background: transparent;
 
   .site-header-inner {
     display: flex;
@@ -12,13 +20,16 @@
     font-weight: 700;
     letter-spacing: 0.1em;
     font-size: 1.2rem;
-    color: var(--text-primary);
+    color: var(--text-inverse);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
   }
 
   .site-header-tagline {
     margin-top: 12px;
-    color: var(--text-secondary);
+    max-width: 60%;
+    color: rgba(255, 255, 255, 0.88);
     font-size: 0.95rem;
     line-height: 1.5;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
   }
 }

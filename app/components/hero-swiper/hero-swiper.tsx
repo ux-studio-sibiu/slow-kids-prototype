@@ -7,17 +7,20 @@ import "./hero-swiper.scss";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation, Pagination, Keyboard, A11y } from "swiper/modules";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
+import a1 from "@/media/a-1.png";
+import a2 from "@/media/a-2.png";
+import a3 from "@/media/a-3.png";
+import edit1 from "@/media/c92954f2-1d09-4bfa-9b89-d5c7bda49159-image_edit_oai_img_QaJD2uSQWqeYxbCckLhcA.png";
 
-export type HeroSwiperImage = { url: string; lqip?: string };
+export type HeroSwiperImage = { url: string | StaticImageData; lqip?: string };
 
-export default function HeroSwiper({
-  images,
-  alt = "imagine",
-}: {
-  images: HeroSwiperImage[];
-  alt?: string;
-}) {
+const LOCAL_IMAGES: HeroSwiperImage[] = [a1, a2, a3, edit1].map((img) => ({
+  url: img,
+  lqip: img.blurDataURL,
+}));
+
+export default function HeroSwiper() {
   return (
     <Swiper
       className="nsc-hero-swiper"
@@ -30,9 +33,9 @@ export default function HeroSwiper({
       navigation
       pagination={{ clickable: true }}
     >
-      {images.map((src, idx) => (
+      {LOCAL_IMAGES.map((src, idx) => (
         <SwiperSlide key={idx}>
-          <Image src={src.url} className="object-cover" alt={`${alt} ${idx + 1}`} fill priority={idx === 0} sizes="100vw" placeholder={src.lqip ? "blur" : "empty"} blurDataURL={src.lqip} />
+          <Image src={src.url} className="object-cover" alt={`Image ${idx + 1}`} fill priority={idx === 0} sizes="100vw" placeholder={src.lqip ? "blur" : "empty"} blurDataURL={src.lqip} />
         </SwiperSlide>
       ))}
     </Swiper>
