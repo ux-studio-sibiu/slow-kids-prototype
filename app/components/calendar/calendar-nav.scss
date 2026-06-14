@@ -11,7 +11,7 @@
   padding: 20px 22px 24px;
   // Translucent card so the image reads through faintly; opaque enough to keep
   // the grid legible.
-  background: color-mix(in srgb, var(--surface-primary) 90%, transparent);
+  background: color-mix(in srgb, #edf1ec7d 90%, transparent);
   backdrop-filter: blur(8px);
   border: 1px solid var(--border-subtle);
   border-radius: 14px;
@@ -50,6 +50,14 @@
       background: var(--surface-accent);
       border-color: var(--surface-accent);
       color: var(--text-on-accent);
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: default;
+      background: var(--surface-secondary);
+      border-color: var(--border-subtle);
+      color: var(--text-primary);
     }
   }
 
