@@ -8,6 +8,9 @@
   background: var(--surface-primary);
 
   .calendar-inner {
+    // Keep the content column narrow and centred within the (wider) panel.
+    max-width: 500px;
+    margin: 0 auto;
     padding: 48px 28px;
 
     @include respond-to("tablet") {

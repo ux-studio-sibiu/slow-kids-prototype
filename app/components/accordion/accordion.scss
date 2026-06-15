@@ -1,0 +1,86 @@
+.nsc-accordion {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+
+  .accordion-item {
+    border-top: 1px solid var(--border-subtle);
+
+    &:last-child {
+      border-bottom: 1px solid var(--border-subtle);
+    }
+  }
+
+  .accordion-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.1rem 0.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+  }
+
+  .accordion-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  // Plus / minus glyph drawn with two bars; the vertical bar collapses when open.
+  .accordion-icon {
+    position: relative;
+    flex: 0 0 auto;
+    width: 16px;
+    height: 16px;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      background: var(--text-accent);
+      transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+    }
+
+    &::before {
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      transform: translateY(-50%);
+    }
+
+    &::after {
+      left: 50%;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      transform: translateX(-50%);
+    }
+  }
+
+  .accordion-item.is-open .accordion-icon::after {
+    opacity: 0;
+    transform: translateX(-50%) scaleY(0);
+  }
+
+  .accordion-panel {
+    padding: 0 0.25rem 1.2rem;
+
+    p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      max-width: 60ch;
+    }
+  }
+}

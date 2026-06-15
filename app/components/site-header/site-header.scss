@@ -12,9 +12,17 @@
   align-items: center;
   text-align: center;
   gap: 16px;
+  // Let clicks fall through the header's empty areas to the swiper's edge nav
+  // zones; only the logo and nav stay interactive.
+  pointer-events: none;
 
   .site-header-brand {
     display: inline-flex;
+    pointer-events: auto;
+  }
+
+  .nav-menu {
+    pointer-events: auto;
   }
 
   .site-header-logo {

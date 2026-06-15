@@ -1,4 +1,5 @@
 import { getGeneralInfo } from "@/sanity/sanity.query";
+import Accordion, { AccordionItem } from "@/app/components/accordion/accordion";
 import "./faq.scss";
 
 export const revalidate = 60; // seconds
@@ -17,14 +18,11 @@ export default async function Faq() {
             Adăugați întrebări frecvente în Setări website.
           </p>
         ) : (
-          <div className="faq-list">
+          <Accordion>
             {items.map((item, i) => (
-              <details key={i} className="faq-item">
-                <summary className="faq-question">{item.question}</summary>
-                <p className="faq-answer">{item.answer}</p>
-              </details>
+              <AccordionItem key={i} title={item.question}>{item.answer}</AccordionItem>
             ))}
-          </div>
+          </Accordion>
         )}
       </div>
     </div>
