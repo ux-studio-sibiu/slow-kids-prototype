@@ -7,10 +7,7 @@ export type FaqItem = {
 
 export type SiteInfoType = {
   _id: string;
-  siteTitle: string;
-  tagline?: string;
   heroImages?: { url: string; lqip?: string }[];
-  aboutTitle?: string;
   aboutText?: PortableTextBlock[];
   email?: string;
   phoneNumber?: string;

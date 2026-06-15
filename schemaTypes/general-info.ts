@@ -7,32 +7,11 @@ const generalInfo = {
 
   fields: [
     defineField({
-      name: "siteTitle",
-      title: "Titlu site",
-      description: "Numele afișat în antet și pe prima pagină.",
-      type: "string",
-      validation: (rule) => rule.required(),
-    }),
-
-    defineField({
-      name: "tagline",
-      title: "Slogan",
-      description: "Un subtitlu scurt afișat sub titlu.",
-      type: "string",
-    }),
-
-    defineField({
       name: "heroImages",
       title: "Imagini copertă",
       description: "Imaginile afișate pe prima pagină.",
       type: "array",
       of: [{ type: "image", options: { hotspot: true } }],
-    }),
-
-    defineField({
-      name: "aboutTitle",
-      title: "Titlu „Despre",
-      type: "string",
     }),
 
     defineField({
@@ -62,7 +41,7 @@ const generalInfo = {
       title: "Rețele sociale",
       description: "Lăsați un câmp gol pentru a ascunde acel link.",
       type: "object",
-      options: { collapsible: true, collapsed: false },
+      options: { collapsible: true, collapsed: true },
       fields: [
         defineField({
           name: "facebook",

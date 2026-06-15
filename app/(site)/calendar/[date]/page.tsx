@@ -28,7 +28,7 @@ export default async function CalendarDatePage({ params }: { params: Promise<{ d
   );
 
   return (
-    <div id="nsc--calendar" className="has-splatter-bg">
+    <div id="nsc--calendar" className="has-splatter-bg has-splatter-bg">
       <div className="calendar-inner">
         <h1 className="calendar-detail-heading">{heading}</h1>
 

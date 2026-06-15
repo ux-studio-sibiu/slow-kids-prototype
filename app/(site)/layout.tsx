@@ -5,7 +5,6 @@ import { Archivo } from "next/font/google";
 import "@/app/styles/globals.scss";
 import SiteHeader from "@/app/components/site-header/site-header";
 import HeroSwiper from "@/app/components/hero-swiper/hero-swiper";
-import { getGeneralInfo } from "@/sanity/sanity.query";
 
 // Archivo is a variable font, so weight is omitted (the full range loads).
 const archivo = Archivo({
@@ -20,23 +19,19 @@ export const metadata: Metadata = {
   icons: { icon: "/images/favicon.png" },
 };
 
-export default async function SiteLayout({
+export default function SiteLayout({
   children,
   aside,
 }: {
   children: React.ReactNode;
   aside: React.ReactNode;
 }) {
-  const info = await getGeneralInfo();
-  const title = info?.siteTitle || "Educator";
-  const tagline = info?.tagline || "";
-
   return (
     <html lang="ro" data-scroll-behavior="smooth">
       <body className={archivo.variable}>
         <div className="nsc-site-layout">
           <aside className="site-panel site-panel-left">
-            <SiteHeader title={title} tagline={tagline} />
+            <SiteHeader />
             {/* Hero lives in the layout so it never remounts on in-section
                 navigation — the swiper keeps its slide across pages. The slot
                 only overlays the calendar on /calendar routes. */}

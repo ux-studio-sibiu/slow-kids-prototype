@@ -11,10 +11,7 @@ export const getGeneralInfo = unstable_cache(
     return client.fetch(
       groq`*[_type == "general-info"][0]{
         _id,
-        siteTitle,
-        tagline,
         "heroImages": heroImages[]{ "url": asset->url, "lqip": asset->metadata.lqip },
-        aboutTitle,
         aboutText,
         email,
         phoneNumber,

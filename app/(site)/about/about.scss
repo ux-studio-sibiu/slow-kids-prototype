@@ -2,13 +2,20 @@
 
 #nsc--about {
   .about-inner {
-    max-width: 760px;
+    max-width: 600px;
     margin: 0 auto;
     padding: 60px 20px;
 
     @include respond-to("tablet") {
       padding: 80px 40px;
     }
+  }
+
+  .about-logo {
+    display: block;
+    width: clamp(200px, 100%, 420px);
+    height: auto;
+    margin: 0 auto 32px;
   }
 
   .about-title {

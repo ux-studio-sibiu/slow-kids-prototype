@@ -85,6 +85,7 @@ body {
 }
 
 .site-panel-right {
+  background: #fff;
   min-width: 0; // let content shrink inside the grid track instead of overflowing
 
   @include respond-to("desktop") {
@@ -113,5 +114,15 @@ body {
   > * {
     position: relative;
     z-index: 1;
+  }
+
+  // Smaller-texture variant — splatters at about half size.
+  &.splatter-bg-sm::before {
+    background-size:
+      20rem auto,
+      25rem auto,
+      25rem auto,
+      25rem auto,
+      25rem auto;
   }
 }

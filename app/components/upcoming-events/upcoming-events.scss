@@ -1,13 +1,14 @@
-// Upcoming-event teasers — narrow, bulky cards with a prominent date block and
-// a cover photo. Shared by the home page and the /calendar index.
+// Playful "scrapbook" upcoming-event cards: rounded sticker cards with a slight
+// alternating tilt, a chunky rounded date badge that cycles brand colours, and
+// a framed photo. Shared by the home page and the /calendar index.
 .nsc-upcoming-events {
   .upcoming-title {
-    margin: 0 0 16px;
-    font-size: 0.85rem;
+    margin: 0 0 20px;
+    font-size: 1rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--text-secondary);
+    letter-spacing: 0.1em;
+    color: var(--color-green);
   }
 
   .upcoming-list {
@@ -16,47 +17,63 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 22px;
     max-width: 480px;
+  }
+
+  // Cards tilt slightly, alternating direction, for a hand-placed feel.
+  li:nth-child(odd) .upcoming-teaser {
+    transform: rotate(-1.4deg);
+  }
+  li:nth-child(even) .upcoming-teaser {
+    transform: rotate(1.4deg);
   }
 
   .upcoming-teaser {
     display: flex;
     align-items: stretch;
-    min-height: 112px;
+    gap: 0;
+    min-height: 128px;
+    padding: 12px;
     text-decoration: none;
     background: var(--surface-secondary);
-    border: 1px solid var(--border-subtle);
-    border-radius: 10px;
-    overflow: hidden;
+    border-radius: 22px;
+    box-shadow: 0 10px 22px rgba(35, 31, 32, 0.12);
     transition:
-      border-color 0.15s ease,
-      box-shadow 0.15s ease,
-      transform 0.15s ease;
+      transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.25s ease;
 
+    // Straighten, lift and pop on hover.
     &:hover {
-      border-color: var(--color-green);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-      transform: translateY(-1px);
+      transform: rotate(0deg) translateY(-4px) scale(1.015);
+      box-shadow: 0 16px 30px rgba(35, 31, 32, 0.2);
     }
   }
 
+  // Rounded date "sticker" — colour cycles green → orange → sage across cards.
   .upcoming-teaser-date {
     flex-shrink: 0;
-    width: 72px;
+    width: 64px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2px;
-    // Solid green block so the date reads at a glance.
+    border-radius: 16px;
     background: var(--color-green);
     color: var(--color-white);
     line-height: 1;
   }
 
+  li:nth-child(3n + 2) .upcoming-teaser-date {
+    background: var(--color-orange);
+  }
+  li:nth-child(3n) .upcoming-teaser-date {
+    background: var(--color-sage);
+  }
+
   .upcoming-teaser-day {
-    font-size: 2.2rem;
+    font-size: 2.3rem;
     font-weight: 700;
   }
 
@@ -74,21 +91,28 @@
     flex-direction: column;
     justify-content: center;
     gap: 6px;
-    padding: 14px 16px;
+    padding: 4px 14px;
   }
 
-  // Cover photo flush to the right edge.
+  // Framed, rounded photo that gently zooms on hover.
   .upcoming-teaser-thumb {
     position: relative;
     flex-shrink: 0;
-    width: 130px;
+    width: 118px;
     align-self: stretch;
+    border-radius: 14px;
+    overflow: hidden;
     background: var(--surface-muted);
 
     img {
       width: 100%;
       height: 100%;
+      transition: transform 0.3s ease;
     }
+  }
+
+  .upcoming-teaser:hover .upcoming-teaser-thumb img {
+    transform: scale(1.07);
   }
 
   .upcoming-teaser-title {
@@ -100,5 +124,23 @@
   .upcoming-teaser-meta {
     font-size: 0.85rem;
     color: var(--text-secondary);
+  }
+
+  // Respect reduced-motion: drop the tilt and hover motion.
+  @media (prefers-reduced-motion: reduce) {
+    li:nth-child(odd) .upcoming-teaser,
+    li:nth-child(even) .upcoming-teaser {
+      transform: none;
+    }
+    .upcoming-teaser,
+    .upcoming-teaser-thumb img {
+      transition: none;
+    }
+    .upcoming-teaser:hover {
+      transform: translateY(-2px);
+    }
+    .upcoming-teaser:hover .upcoming-teaser-thumb img {
+      transform: none;
+    }
   }
 }

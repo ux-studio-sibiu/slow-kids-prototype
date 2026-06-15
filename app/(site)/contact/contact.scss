@@ -1,0 +1,121 @@
+@use "@/app/styles/breakpoints" as *;
+
+#nsc--contact {
+  min-height: 100%;
+  background: var(--color-white);
+
+  .contact-inner {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 48px 28px;
+
+    @include respond-to("tablet") {
+      padding: 64px 40px;
+    }
+  }
+
+  .contact-logo {
+    display: block;
+    width: clamp(140px, 40%, 220px);
+    width: clamp(200px, 100%, 420px);
+    height: auto;
+    margin: 0 auto 28px;
+  }
+
+  .contact-title {
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .contact-lead {
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+  }
+
+  .contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+
+  .contact-method {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px 18px;
+    background: var(--surface-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    text-decoration: none;
+    transition:
+      border-color 0.15s ease,
+      box-shadow 0.15s ease,
+      transform 0.15s ease;
+
+    &:hover {
+      border-color: var(--color-green);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      transform: translateY(-1px);
+    }
+  }
+
+  .contact-method-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+  }
+
+  .contact-method-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .contact-social-label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+  }
+
+  .contact-social-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .contact-social-link {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid var(--border-subtle);
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    transition:
+      background 0.15s ease,
+      color 0.15s ease,
+      border-color 0.15s ease;
+
+    &:hover {
+      background: var(--color-green);
+      border-color: var(--color-green);
+      color: var(--color-white);
+    }
+  }
+
+  .contact-empty {
+    color: var(--text-secondary);
+  }
+}

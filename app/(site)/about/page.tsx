@@ -1,17 +1,19 @@
+import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import { getGeneralInfo } from "@/sanity/sanity.query";
+import logoBlack from "@/media/logo-black.jpeg";
 import "./about.scss";
 
 export const revalidate = 60; // seconds
 
 export default async function About() {
   const info = await getGeneralInfo();
-  const heading = info?.aboutTitle || "Despre";
 
   return (
     <div id="nsc--about">
       <article className="about-inner">
-        <h1 className="about-title">{heading}</h1>
+        <Image src={logoBlack} alt="Slow Play" className="about-logo" priority />
+        <h1 className="about-title">Despre</h1>
 
         {info?.aboutText ? (
           <div className="about-body has-portable-text">
