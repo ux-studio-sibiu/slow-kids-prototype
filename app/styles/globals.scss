@@ -38,7 +38,7 @@ body {
   min-height: 100vh;
 
   @include respond-to("desktop") {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.7fr 1fr;
     height: 100vh;
   }
 }

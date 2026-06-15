@@ -1,32 +1,32 @@
 // The header floats over the left-panel image with a transparent background;
-// light text + shadow keep it legible over photos.
+// the logo is centred above the nav.
 .nsc-site-header {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   z-index: 3;
-  padding: 24px 28px;
-  background: transparent;
-
-  .site-header-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-  }
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
 
   .site-header-brand {
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    font-size: 1.2rem;
-    color: var(--text-inverse);
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+    display: inline-flex;
+  }
+
+  .site-header-logo {
+    // Responsive width, height auto keeps next/image happy with the aspect.
+    width: clamp(120px, 22vw, 280px);
+    height: auto;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
   }
 
   .site-header-tagline {
-    margin-top: 12px;
-    max-width: 60%;
+    margin: 0;
+    max-width: 32ch;
     color: rgba(255, 255, 255, 0.88);
     font-size: 0.95rem;
     line-height: 1.5;

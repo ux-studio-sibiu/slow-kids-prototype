@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { getEvents } from "@/sanity/sanity.query";
 import { dayKey } from "@/app/components/calendar/day-key";
@@ -26,6 +27,7 @@ export default async function CalendarIndexPage() {
             <ul className="calendar-teaser-list">
               {upcoming.map((event) => {
                 const d = new Date(event.date);
+                const cover = event.photos?.[0];
                 return (
                   <li key={event._id}>
                     <Link href={`/calendar/${dayKey(d)}`} className="calendar-teaser">
@@ -37,6 +39,11 @@ export default async function CalendarIndexPage() {
                         <span className="calendar-teaser-title">{event.title}</span>
                         {event.meetPoint && <span className="calendar-teaser-meta">{event.meetPoint}</span>}
                       </span>
+                      {cover?.url && (
+                        <span className="calendar-teaser-thumb">
+                          <Image src={cover.url} alt={event.title} fill sizes="130px" className="object-cover" placeholder={cover.lqip ? "blur" : undefined} blurDataURL={cover.lqip} />
+                        </span>
+                      )}
                     </Link>
                   </li>
                 );
