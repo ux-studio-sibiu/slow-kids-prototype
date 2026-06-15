@@ -149,9 +149,9 @@ Reference semantic tokens directly in any stylesheet — no `@use`/import needed
 }
 ```
 
-**Live example:** the [`CtaPopout`](app/components/cta-popout/cta-popout.tsx)
-component consumes `--surface-inverse`, `--surface-muted`, `--text-accent`,
-`--btn-primary-*`, etc.
+**Live example:** the [`SignupForm`](app/components/signup-form/signup-form.tsx)
+component consumes `--surface-secondary`, `--border-subtle`, `--text-accent`,
+`--btn-primary-*`, `--btn-secondary-*`, `--focus-ring`, etc.
 
 ### Adding or changing a color
 1. Add/adjust the **primitive** in `_tokens.scss`.

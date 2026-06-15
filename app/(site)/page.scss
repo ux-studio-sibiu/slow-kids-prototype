@@ -1,73 +1,12 @@
-@use "@/app/styles/breakpoints" as *;
-
 #nsc--home {
   .home-events {
+    // Narrow, centred content column — same as the calendar page.
+    max-width: 500px;
+    margin: 0 auto;
     padding: 48px 28px;
   }
 
-  .home-events-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 28px;
-  }
-
   .home-events-empty {
-    color: var(--text-secondary);
-  }
-
-  .home-events-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
-
-    // The right panel is only ~half the viewport, so a second column only fits
-    // comfortably on very wide screens.
-    @include respond-to("wide") {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  .home-events-item {
-    background: var(--surface-secondary);
-    border: 1px solid var(--border-subtle);
-    border-radius: 8px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .home-events-thumb {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 3 / 2;
-    background: var(--surface-primary);
-  }
-
-  .home-events-body {
-    padding: 18px 20px 22px;
-  }
-
-  .home-events-date {
-    display: block;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--text-secondary);
-  }
-
-  .home-events-name {
-    margin-top: 6px;
-    font-size: 1.15rem;
-    font-weight: 700;
-  }
-
-  .home-events-count {
-    display: inline-block;
-    margin-top: 10px;
-    font-size: 0.8rem;
     color: var(--text-secondary);
   }
 }

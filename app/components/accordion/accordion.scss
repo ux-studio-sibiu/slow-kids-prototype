@@ -44,7 +44,7 @@
     &::after {
       content: "";
       position: absolute;
-      background: var(--text-accent);
+      background: var(--text-primary);
       transition:
         transform 0.2s ease,
         opacity 0.2s ease;
