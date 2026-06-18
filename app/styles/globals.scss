@@ -5,6 +5,7 @@
 @use "_portable-text" as *;
 @use "_splatter" as *;
 @use "_butterflies" as *;
+@use "_foliage" as *;
 
 html {
   min-height: 100%;
@@ -128,33 +129,3 @@ body {
   }
 }
 
-// Drop-in utility — add this class to any element to display a large numeric
-// watermark behind content (e.g., event count, day number). Customize the number,
-// opacity, and color via CSS custom properties:
-//   style={{ "--watermark-number": '"2"', "--watermark-opacity": "0.12" }}
-.has-watermark-bg {
-  position: relative;
-
-  &::before {
-    content: var(--watermark-number, "");
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    font-size: clamp(8rem, 50vw, 28rem);
-    font-weight: 700;
-    opacity: var(--watermark-opacity, 0.1);
-    color: var(--watermark-color, var(--color-ink));
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-right: 2rem;
-    padding-bottom: 2rem;
-    line-height: 1;
-  }
-
-  > * {
-    position: relative;
-    z-index: 1;
-  }
-}

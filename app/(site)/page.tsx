@@ -8,7 +8,7 @@ export default async function Home() {
   const events = await getEvents();
 
   return (
-    <div id="nsc--home" className="has-splatter-bg has-watermark-bg" style={{ "--watermark-number": '"2026"', "--watermark-opacity": "0.08" } as React.CSSProperties}>
+    <div id="nsc--home" className="has-splatter-bg">
       <div className="home-inner">
         <header className="home-header">
           <p className="home-header-label">Slow Days Outside · Program</p>

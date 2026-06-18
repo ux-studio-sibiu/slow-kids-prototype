@@ -12,6 +12,7 @@
   // Translucent card so the image reads through faintly; opaque enough to keep
   // the grid legible.
   background: color-mix(in srgb, #edf1ec7d 90%, transparent);
+  background: var(--surface-primary);
   backdrop-filter: blur(8px);
   border: 1px solid var(--border-subtle);
   border-radius: 14px;
@@ -89,9 +90,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--border-subtle);
+    // border: 1px solid var(--border-subtle);
     border-radius: 8px;
-    background: var(--surface-secondary);
+    // background: var(--surface-secondary);
     font-size: 0.95rem;
     font-weight: 500;
     color: var(--text-primary);
@@ -104,14 +105,18 @@
     }
 
     &.is-free {
-      color: var(--text-secondary);
+      // color: var(--text-secondary);
     }
 
     &.has-events {
+      border:none;
+      background:none;
       // Only the centred green star marks the day — hide the number.
       .calendar-day-num {
-        display: none;
+        // display: none;
       }
+
+      &:hover .calendar-day-sun { background-color: #ffbf0f; }
 
       @media (hover: hover) {
         &:hover {
@@ -126,8 +131,8 @@
     }
 
     &.is-selected {
-      outline: 2px solid var(--color-green);
-      outline-offset: -2px;
+      // outline: 2px solid var(--color-green);
+      // outline-offset: -2px;
     }
   }
 
@@ -137,15 +142,20 @@
     line-height: 1;
   }
 
-  // Green star centred on a day with events.
-  .calendar-day-star {
+  // Sun icon centred on a day with events — color via background-color.
+  .calendar-day-sun {
+    background-color: #ffe80f;
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 34px;
-    height: 34px;
+    width: 64px;
+    height: 64px;
     transform: translate(-50%, -50%);
-    color: var(--color-green);
+    mask-image: url(/images/sun-3.svg);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
     pointer-events: none;
+
   }
 }

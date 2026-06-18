@@ -1,0 +1,143 @@
+// ─────────────────────────────────────────────────────────────────────────
+// Decorative foliage background patterns.
+//
+// Seven individual foliage/leaf SVGs extracted from a complex illustration,
+// positioned and sized independently for an organic, editorial aesthetic.
+// Similar to butterflies-bg but with botanical elements.
+// This partial only DEFINES utilities, so it can be `@use`d without
+// duplication. The drop-in utility classes are emitted once from globals.scss.
+// ─────────────────────────────────────────────────────────────────────────
+
+// Drop-in utility — add this class to any element to display decorative
+// foliage/leaves behind content. Position and scale via CSS custom properties:
+//   style={{ "--foliage-opacity": "0.12" }}
+.has-foliage-bg {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: var(--foliage-opacity, 0.2);
+    background-image:
+      url(/images/foliage-1.svg),
+      url(/images/foliage-2.svg),
+      url(/images/foliage-3.svg),
+      url(/images/foliage-4.svg),
+      url(/images/foliage-5.svg),
+      url(/images/foliage-6.svg),
+      url(/images/foliage-7.svg);
+    background-repeat: no-repeat;
+    background-size:
+      10rem auto,
+      9rem auto,
+      12rem auto,
+      11rem auto,
+      10rem auto,
+      0rem auto,
+      13rem auto;
+    background-position:
+      left 5% top 10%,
+      right 8% bottom 15%,
+      left 12% bottom 20%,
+      right 15% top 25%,
+      left 8% bottom 5%,
+      right 10% top 40%,
+      left 20% top 60%;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  // Larger variant for more visible foliage.
+  &.foliage-bg-lg::before {
+    background-size:
+      32rem auto,
+      30rem auto,
+      28rem auto,
+      34rem auto,
+      29rem auto,
+      31rem auto,
+      33rem auto;
+  }
+
+  // Tighter variant for smaller spaces.
+  &.foliage-bg-sm::before {
+    background-size:
+      14rem auto,
+      12rem auto,
+      11rem auto,
+      16rem auto,
+      13rem auto,
+      15rem auto,
+      17rem auto;
+    background-position:
+      left 10% top 15%,
+      right 12% bottom 20%,
+      left 15% bottom 25%,
+      right 18% top 30%,
+      left 12% bottom 10%,
+      right 14% top 45%,
+      left 25% top 65%;
+  }
+}
+
+// ── Mixed botanical + sun background ─────────────────────────────────────────
+// Suns, butterflies, and foliage scattered across the element.
+// Layer order: suns on top → butterflies → foliage at back.
+// Control opacity: style={{ "--mixed-bg-opacity": "0.2" }}
+.has-mixed-bg {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: var(--mixed-bg-opacity, 0.22);
+    background-image:
+      url(/images/sun-1.svg),
+      url(/images/sun-3.svg),
+      url(/images/butterfly-2.svg),
+      url(/images/butterfly-4.svg),
+      url(/images/butterfly-1.svg),
+      url(/images/butterfly-3.svg),
+      url(/images/foliage-3.svg),
+      url(/images/foliage-7.svg),
+      url(/images/foliage-5.svg),
+      url(/images/foliage-1.svg);
+    background-repeat: no-repeat;
+    background-size:
+      7rem auto,
+      6.5rem auto,
+      6rem auto,
+      5rem auto,
+      5.5rem auto,
+      5rem auto,
+      11rem auto,
+      10rem auto,
+      9rem auto,
+      8rem auto;
+    background-position:
+      left 6% top 5%,
+      right 7% bottom 6%,
+      right 13% top 18%,
+      left 5% top 38%,
+      left 24% bottom 8%,
+      right 5% top 52%,
+      right 2% top 2%,
+      left 2% bottom 2%,
+      left 3% top 16%,
+      right 4% bottom 20%;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+}

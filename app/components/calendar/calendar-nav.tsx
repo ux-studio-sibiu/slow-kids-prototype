@@ -130,9 +130,7 @@ export default function CalendarNav({ events }: { events: EventType[] }) {
 
           return (
             <Link key={day} href={`/calendar/${dateStr}`} className={cls}>
-              <svg className="calendar-day-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M12 2l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L12 17l-5.8 3.3 1.6-6.6L2.6 9.3l6.8-.5z" />
-              </svg>
+              <span className="calendar-day-sun" aria-hidden="true" />
               <span className="calendar-day-num">{day}</span>
             </Link>
           );

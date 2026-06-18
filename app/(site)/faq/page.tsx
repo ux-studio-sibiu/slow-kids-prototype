@@ -9,7 +9,7 @@ export default async function Faq() {
   const items = info?.faq ?? [];
 
   return (
-    <div id="nsc--faq" className="has-splatter-bg has-watermark-bg" style={{ "--watermark-number": '"2026"', "--watermark-opacity": "0.08" } as React.CSSProperties}>
+    <div id="nsc--faq" className="has-foliage-bg foliage-bg-sm" >
       <div className="faq-inner">
         <h1 className="faq-title">Întrebări frecvente</h1>
 
