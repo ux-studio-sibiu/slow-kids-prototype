@@ -3,6 +3,8 @@
 // Right-panel content for /calendar and /calendar/[date]: a hint + upcoming
 // teasers on the index, or the selected day's event detail + gallery.
 #nsc--calendar {
+  display: flex;
+  flex-direction: column;
   position: relative;
   min-height: 100%;
   background: var(--surface-primary);

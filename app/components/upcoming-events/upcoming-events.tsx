@@ -9,7 +9,7 @@ import "./upcoming-events.scss";
 export default function UpcomingEvents({
   events,
   limit = 5,
-  title = "Evenimente următoare",
+  title = "Program activităti",
 }: {
   events: EventType[];
   limit?: number;
@@ -38,12 +38,13 @@ export default function UpcomingEvents({
                   <span className="upcoming-teaser-month">{d.toLocaleDateString("ro-RO", { month: "short" })}</span>
                 </span>
                 <span className="upcoming-teaser-body">
-                  <span className="upcoming-teaser-title">{event.title}</span>
                   {event.meetPoint && <span className="upcoming-teaser-meta">{event.meetPoint}</span>}
                 </span>
                 {cover?.url && (
                   <span className="upcoming-teaser-thumb">
-                    <Image src={cover.url} alt={event.title} fill sizes="130px" className="object-cover" placeholder={cover.lqip ? "blur" : undefined} blurDataURL={cover.lqip} />
+                    <span className="upcoming-teaser-border">
+                      <Image src={cover.url} alt={event.title} fill sizes="130px" className="object-cover" placeholder={cover.lqip ? "blur" : undefined} blurDataURL={cover.lqip} />
+                    </span>
                   </span>
                 )}
               </Link>

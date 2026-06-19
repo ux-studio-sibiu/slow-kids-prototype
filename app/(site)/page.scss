@@ -1,4 +1,6 @@
 #nsc--home {
+  display: flex;
+  flex-direction: column;
   position: relative;
   min-height: 100%;
   background: var(--surface-primary);

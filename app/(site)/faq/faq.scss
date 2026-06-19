@@ -1,6 +1,8 @@
 @use "@/app/styles/breakpoints" as *;
 
 #nsc--faq {
+  display: flex;
+  flex-direction: column;
   position: relative;
   min-height: 100%;
   background: var(--surface-primary);

@@ -10,19 +10,21 @@ export default async function Home() {
   const events = await getEvents();
 
   return (
-    <div id="nsc--home">
-      <DecorLayer color="rgba(0,0,0,0.1)">
+    <div id="nsc--home" className="pb-300">
+
+      <DecorLayer color="rgba(0,0,0,0.05)">
         <SvgItem src="/images/vines-5.svg" left="-8%" top="5%" width="18rem" rotate={6} />
         <SvgItem src="/images/foliage-4.svg" right="2%" top="55%" width="15rem" rotate={-10} flipX />
         <SvgItem src="/images/more-flowers-2.svg" left="3%" bottom="5%" width="13rem" rotate={12} />
-        <SvgItem src="/images/forest-4.svg" right="-5%" bottom="0%" width="55%" />
+        <SvgItem src="/images/forest-4.svg" left="-5%" bottom="-2rem" width="110%" />
         <SvgItem src="/images/butterfly-4.svg" right="10%" top="15%" width="9rem" rotate={-8} />
       </DecorLayer>
+
       <div className="page-content">
         <header className="home-header">
-          <p className="home-header-label">Slow Days Outside · Program</p>
-          <h1 className="home-header-title">Evenimente următoare</h1>
-          <p className="home-header-desc">Alege un eveniment din listă pentru detalii și însciere.</p>
+          {/* <p className="home-header-label">Slow Days Outside · Program</p> */}
+          <h1 className="home-header-title">Program activităti</h1>
+          {/* <p className="home-header-desc">Alege un eveniment din listă pentru detalii și însciere.</p> */}
         </header>
 
         <section className="home-events">

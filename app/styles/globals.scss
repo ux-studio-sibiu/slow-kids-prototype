@@ -101,6 +101,12 @@ body {
 // namespace wrapper. The wrapper provides position:relative + scroll context;
 // this div sits above the DecorLayer (z-index:1) with consistent padding.
 .page-content {
+  // Grows to fill the flex-column namespace wrapper, so it's always at least
+  // the parent's height (replaces an unreliable `min-height: 100%`, which can't
+  // resolve against the wrapper's auto/min-height-only height). Requires the
+  // wrapper to be `display: flex; flex-direction: column`.
+  flex: 1 0 auto;
+  width: 100%;
   max-width: 800px;
   margin: 0 auto;
   padding: 56px 32px;

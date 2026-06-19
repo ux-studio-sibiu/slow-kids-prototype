@@ -40,7 +40,7 @@
     transition: opacity 0.2s ease;
 
     &:hover {
-      opacity: 0.8;
+      // opacity: 0.8;
     }
   }
 
@@ -101,21 +101,32 @@
   .upcoming-teaser-thumb {
     position: relative;
     flex-shrink: 0;
-    width: clamp(140px, 20vw, 220px);
-    aspect-ratio: 16 / 10;
-    border-radius: 0;
+    width: clamp(100px, 20vw, 160px);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
     overflow: hidden;
-    background: var(--surface-secondary);
+    background: #fff;
+    padding:10px;
+
+    .upcoming-teaser-border{
+      display: block;
+      position: relative;
+      width:100%;
+      height:100%;
+      border-radius: 50%;
+      overflow: hidden;
+    }
 
     img {
       width: 100%;
       height: 100%;
       transition: transform 0.3s ease;
       object-fit: cover;
+      border-radius: 50%;
     }
   }
 
   .upcoming-teaser:hover .upcoming-teaser-thumb img {
-    transform: scale(1.04);
+    // transform: scale(1.04);
   }
 }
