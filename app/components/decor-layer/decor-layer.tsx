@@ -21,9 +21,13 @@ interface DecorLayerProps {
   color?: string;
   zIndex?: number;
   filter?: string;
+  /** Fixed width of the inner stage the SvgItems are positioned against. Keeps the composition stable across panel widths — percentages resolve to this, not the live panel. Centered + clipped on narrower panels. Default 1000. */
+  minStageWidth?: CSSProperties["width"];
+  /** Optional floor height for the stage on very short pages. */
+  stageMinHeight?: CSSProperties["minHeight"];
 }
 
-export function DecorLayer({ children, className, color, zIndex = 0, filter }: DecorLayerProps) {
+export function DecorLayer({ children, className, color, zIndex = 0, filter, minStageWidth = 1000, stageMinHeight }: DecorLayerProps) {
   // Split rgba(r,g,b,a) → solid rgb for `color` (drives currentColor in SvgItems)
   // + numeric `opacity` on the container. This prevents per-path alpha compounding:
   // overlapping paths inside an SVG would otherwise stack opacity and create dark edges.
@@ -37,7 +41,12 @@ export function DecorLayer({ children, className, color, zIndex = 0, filter }: D
 
   return (
     <div aria-hidden="true" className={["decor-layer", className].filter(Boolean).join(" ")} style={{ position: "absolute", top: 0, left: 0, right: 0, minHeight: "100%", zIndex, pointerEvents: "none", overflow: "hidden", color: solidColor, opacity, filter }}>
-      {children}
+      {/* Fixed-width stage: SvgItems anchor to this, not the panel, so the
+          composition stays stable. Centered horizontally and full height
+          (bottom-anchored decor still hugs the page bottom). */}
+      <div className="decor-stage" style={{ minWidth: minStageWidth, minHeight: stageMinHeight }}>
+        {children}
+      </div>
     </div>
   );
 }

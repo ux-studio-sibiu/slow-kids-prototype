@@ -112,6 +112,22 @@ body {
   }
 }
 
+// ── Decor stage ────────────────────────────────────────────────────────────
+// Fixed-width canvas inside .decor-layer that the decorative SvgItems are
+// positioned against. Because its width is fixed (not the live panel width),
+// the absolute %-based positions resolve to a stable canvas, so the composition
+// no longer rearranges as the panel resizes. Centered horizontally and clipped
+// by the parent's overflow:hidden on narrower panels; full height (top+bottom:0)
+// so bottom-anchored decorations still hug the page bottom.
+.decor-stage {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 // Drop-in utility — add this class to any element to paint the decorative
 // paint-splatter textures on a behind-content layer (so their opacity and
 // stacking never touch the children). Tune intensity with the
