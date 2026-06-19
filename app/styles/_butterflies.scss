@@ -23,10 +23,10 @@
     filter:grayscale(1);
     opacity: var(--butterfly-opacity, 0.32);
     background-image:
-      url(/images/butterfly-1.svg),
-      url(/images/butterfly-2.svg),
-      url(/images/butterfly-3.svg),
-      url(/images/butterfly-4.svg);
+      url(/svg/butterfly-1.svg),
+      url(/svg/butterfly-2.svg),
+      url(/svg/butterfly-3.svg),
+      url(/svg/butterfly-4.svg);
     background-repeat: no-repeat;
     background-size:
       9rem auto,

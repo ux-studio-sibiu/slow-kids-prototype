@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { getGeneralInfo } from "@/sanity/sanity.query";
-import logoBlack from "@/media/logo-black.jpeg";
+import logoBlack from "@/public/logo-black.jpeg";
 import "./contact.scss";
 
 export const revalidate = 60; // seconds

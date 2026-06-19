@@ -15,9 +15,9 @@ export default async function Home() {
 
       <DecorLayer color="rgba(0,0,0,0.05)">
 
-        <SvgItem src="/images/butterfly-4.svg" right="4%" top="2%" width="23rem" rotate={-47} />
-        <SvgItem src="/images/leaves-1.svg" left="-9%" top="13%" width="30rem" rotate={12} />
-        <SvgItem src="/images/forest-4.svg" left="-5%" bottom="-2rem" width="110%" />
+        <SvgItem src="/svg/butterfly-4.svg" right="4%" top="2%" width="23rem" rotate={-47} />
+        <SvgItem src="/svg/leaves-1.svg" left="-9%" top="13%" width="30rem" rotate={12} />
+        <SvgItem src="/svg/forest-4.svg" left="-5%" bottom="-2rem" width="110%" />
         
       </DecorLayer>
 
@@ -29,7 +29,7 @@ export default async function Home() {
         </header>
 
         {/* <div className="divider-leaves" aria-hidden="true">
-          <img src="/images/vines-14.svg" alt="" />
+          <img src="/svg/vines-14.svg" alt="" />
         </div> */}
 
         <section className="home-events">

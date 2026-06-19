@@ -6,7 +6,7 @@ import { join } from "path";
 import type { CSSProperties } from "react";
 
 interface SvgItemProps {
-  /** Path relative to /public, e.g. "/images/foliage-3.svg" */
+  /** Path relative to /public, e.g. "/svg/foliage-3.svg" */
   src: string;
   /** CSS color value — resolves as currentColor inside the SVG. */
   color?: string;

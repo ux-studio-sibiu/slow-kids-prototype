@@ -44,7 +44,7 @@ export default function UpcomingEvents({
                     {cover?.url ? (
                       <Image src={cover.url} alt={event.title} fill sizes="130px" className="object-cover" placeholder={cover.lqip ? "blur" : undefined} blurDataURL={cover.lqip} />
                     ) : (
-                      <img src="/images/sun-3.svg" alt="" className="upcoming-teaser-placeholder" />
+                      <img src="/svg/sun-3.svg" alt="" className="upcoming-teaser-placeholder" />
                     )}
                   </span>
                 </span>

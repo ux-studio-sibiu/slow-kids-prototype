@@ -7,9 +7,9 @@ import { CSSProperties, ReactNode } from "react";
 // Usage:
 //   <div style={{ position: "relative" }}>
 //     <DecorLayer opacity={0.22}>
-//       <DecorItem src="/images/foliage-1.svg" left="5%" top="10%" width="12rem" rotate={-15} />
-//       <DecorItem src="/images/butterfly-2.svg" right="8%" bottom="15%" width="8rem" rotate={20} flipX />
-//       <DecorItem src="/images/sun-3.svg" left="50%" top="5%" width="6rem" rotate={45} opacity={0.4} />
+//       <DecorItem src="/svg/foliage-1.svg" left="5%" top="10%" width="12rem" rotate={-15} />
+//       <DecorItem src="/svg/butterfly-2.svg" right="8%" bottom="15%" width="8rem" rotate={20} flipX />
+//       <DecorItem src="/svg/sun-3.svg" left="50%" top="5%" width="6rem" rotate={45} opacity={0.4} />
 //     </DecorLayer>
 //     <div>page content sits above</div>
 //   </div>

@@ -13,11 +13,11 @@
 
 @mixin splatter-layers {
   background-image:
-    url(/images/texture-serviceparent-foot.svg),
-    url(/images/texture-serviceparent-leftsplat.svg),
-    url(/images/texture-serviceparent-rightsplat.svg),
-    url(/images/texture-serviceparent-leftsplat2.svg),
-    url(/images/texture-serviceparent-rightsplat2.svg);
+    url(/svg/texture-serviceparent-foot.svg),
+    url(/svg/texture-serviceparent-leftsplat.svg),
+    url(/svg/texture-serviceparent-rightsplat.svg),
+    url(/svg/texture-serviceparent-leftsplat2.svg),
+    url(/svg/texture-serviceparent-rightsplat2.svg);
   background-repeat: no-repeat;
   background-size:
     40rem auto,
