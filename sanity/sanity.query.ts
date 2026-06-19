@@ -3,8 +3,8 @@ import client from "./sanity.client";
 import { SiteInfoType, EventType, AvailabilityType } from "@/types";
 import { unstable_cache } from "next/cache";
 
-// 3s in dev, 1h otherwise
-const revalidateInterval = process.env.NODE_ENV === "development" ? 3 : 3 * 3600;
+// 3s in dev, 20s otherwise
+const revalidateInterval = process.env.NODE_ENV === "development" ? 3 : 20;
 
 export const getGeneralInfo = unstable_cache(
   async (): Promise<SiteInfoType> => {
