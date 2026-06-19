@@ -65,6 +65,7 @@ export function SvgItem({
 
   return (
     <div
+      data-src={src}
       style={{
         position: "absolute",
         width,
@@ -79,6 +80,7 @@ export function SvgItem({
         pointerEvents: "none",
         lineHeight: 0,
       }}
+      
       dangerouslySetInnerHTML={{ __html: markup }}
     />
   );

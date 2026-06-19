@@ -38,7 +38,7 @@ export default async function CalendarDatePage({ params }: { params: Promise<{ d
         <SvgItem src="/images/leaves-3.svg" left="6%" top="78%" width="10rem" rotate={15} />
         <SvgItem src="/images/more-leaves-11.svg" right="5%" top="18%" width="12rem" rotate={8} />
       </DecorLayer>
-      <div className="calendar-inner">
+      <div className="page-content">
         <h1 className="calendar-detail-heading">{heading}</h1>
 
         {dayEvents.length === 0 ? (

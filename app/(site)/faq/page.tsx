@@ -1,5 +1,7 @@
 import { getGeneralInfo } from "@/sanity/sanity.query";
 import Accordion, { AccordionItem } from "@/app/components/accordion/accordion";
+import { DecorLayer } from "@/app/components/decor-layer/decor-layer";
+import { SvgItem } from "@/app/components/decor-layer/svg-item";
 import "./faq.scss";
 
 export const revalidate = 60; // seconds
@@ -9,8 +11,14 @@ export default async function Faq() {
   const items = info?.faq ?? [];
 
   return (
-    <div id="nsc--faq" className="has-foliage-bg foliage-bg-sm" >
-      <div className="faq-inner">
+    <div id="nsc--faq">
+      <DecorLayer color="rgba(0,0,0,0.1)">
+        <SvgItem src="/images/vines-7.svg" left="-8%" top="5%" width="18rem" rotate={8} />
+        <SvgItem src="/images/more-leaves-4.svg" right="2%" top="55%" width="14rem" rotate={-12} flipX />
+        <SvgItem src="/images/leaves-6.svg" left="3%" bottom="5%" width="12rem" rotate={15} />
+        <SvgItem src="/images/butterfly-2.svg" right="8%" top="18%" width="9rem" rotate={10} />
+      </DecorLayer>
+      <div className="page-content">
         <h1 className="faq-title">Întrebări frecvente</h1>
 
         {items.length === 0 ? (

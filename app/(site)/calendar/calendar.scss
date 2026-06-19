@@ -7,17 +7,6 @@
   min-height: 100%;
   background: var(--surface-primary);
 
-  .calendar-inner {
-    // Keep the content column narrow and centred within the (wider) panel.
-    max-width: 540px;
-    margin: 0 auto;
-    padding: 56px 32px;
-
-    @include respond-to("tablet") {
-      padding: 72px 48px;
-    }
-  }
-
   .calendar-hint {
     margin: 0 0 28px;
     padding-bottom: 20px;

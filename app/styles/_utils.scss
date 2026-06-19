@@ -1,3 +1,21 @@
+$spacing: (15, 20, 30, 40, 50);
+
+@each $v in $spacing {
+  .mt-#{$v} { margin-top: #{$v}px !important; }
+  .mb-#{$v} { margin-bottom: #{$v}px !important; }
+  .ml-#{$v} { margin-left: #{$v}px !important; }
+  .mr-#{$v} { margin-right: #{$v}px !important; }
+  .mx-#{$v} { margin-left: #{$v}px !important; margin-right: #{$v}px !important; }
+  .my-#{$v} { margin-top: #{$v}px !important; margin-bottom: #{$v}px !important; }
+  .pt-#{$v} { padding-top: #{$v}px !important; }
+  .pb-#{$v} { padding-bottom: #{$v}px !important; }
+  .pl-#{$v} { padding-left: #{$v}px !important; }
+  .pr-#{$v} { padding-right: #{$v}px !important; }
+  .px-#{$v} { padding-left: #{$v}px !important; padding-right: #{$v}px !important; }
+  .py-#{$v} { padding-top: #{$v}px !important; padding-bottom: #{$v}px !important; }
+  .gap-#{$v} { gap: #{$v}px !important; }
+}
+
 .clearfix::after {
   content: "";
   display: table;
@@ -5,21 +23,21 @@
 }
 
 .w-100 {
-  width: 100%;
+  width: 100% !important;
 }
 
 .float-left {
-  float: left;
+  float: left !important;
 }
 
 .text-uppercase {
-  text-transform: uppercase;
+  text-transform: uppercase !important;
 }
 
 .object-cover {
-  object-fit: cover;
+  object-fit: cover !important;
 }
 
 .object-contain {
-  object-fit: contain;
+  object-fit: contain !important;
 }

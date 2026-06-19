@@ -21,7 +21,7 @@ export default async function CalendarIndexPage() {
       </DecorLayer>
 
 
-      <div className="calendar-inner">
+      <div className="page-content">
         <p className="calendar-hint">
           Selectează o zi marcată din calendar pentru a vedea evenimentul.
         </p>

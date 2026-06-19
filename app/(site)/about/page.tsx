@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import { getGeneralInfo } from "@/sanity/sanity.query";
 import logoBlack from "@/media/logo-black.jpeg";
@@ -12,20 +12,18 @@ export default async function About() {
   const info = await getGeneralInfo();
 
   return (
-    <div id="nsc--about">
+    <div id="nsc--about  pt-30 pb-30">
+      <DecorLayer color="rgba(0,0,0,0.1)">
+        <SvgItem src="/images/sun-3.svg" top="-10%" right="-10%" width="20rem" />
+        <SvgItem src="/images/foliage-3.svg" right="4%" top="61%" width="23rem" rotate={-8} flipX />
+        <SvgItem src="/images/clouds-3.svg" left="-12%" top="-3%" width="30%" rotate={10} />
+        <SvgItem src="/images/butterfly-1.svg" left="9%" top="48%" width="12rem" rotate={355} />
+        <SvgItem src="/images/butterfly-3.svg" right="9%" top="44%" width="8rem" rotate={-10} flipX />
+        <SvgItem src="/images/forest-2.svg" bottom="-2rem" left="-5%" width="110%" />
+        <SvgItem src="/images/colibri-4.svg" top="25rem" left="5%" width="8rem" />
+      </DecorLayer>
 
-      
-      <article className="about-inner">
-
-        <DecorLayer color="rgba(0,0,0,0.1)" >
-              <SvgItem src="/images/foliage-3.svg" right="4%" top="61%" width="23rem" rotate={-8} flipX />
-              <SvgItem src="/images/foliage-5.svg" left="-12%" top="3%" width="23rem" rotate={10} />
-              <SvgItem src="/images/butterfly-1.svg" left="4%" top="48%" width="12rem" rotate={355} />
-              <SvgItem src="/images/butterfly-3.svg" right="9%" top="44%" width="8rem" rotate={-10} flipX />
-              <SvgItem src="/images/forest-2.svg" right="-12%" bottom="0%" width="100%" rotate={-5} />
-        </DecorLayer>
-
-
+      <div className="page-content">
         <Image src={logoBlack} alt="Slow Play" className="about-logo" priority />
         <h1 className="about-title">Despre</h1>
 
@@ -35,7 +33,7 @@ export default async function About() {
           </div>
         ) : (
           <p className="about-empty">
-            Completați secțiunea „Despre mine” în Setări website.
+            Completați secțiunea „Despre mine" în Setări website.
           </p>
         )}
 
@@ -53,8 +51,7 @@ export default async function About() {
             )}
           </div>
         )}
-
-      </article>
+      </div>
     </div>
   );
 }
